@@ -43,8 +43,6 @@ def EuclideanDistanceBetweenTwoVectors(vOne, vTwo):
 variables_dict = {
     'training_file' : "./data/homework_classify_train_2D.dat"
     , 'testing_file' : "./data/homework_classify_test_2D.dat"
-    , 'majority_type' : 0
-    , 'classification' : 'UNK'
 }
 
 # create a dictionary of list objects equal to the number of class types
@@ -87,20 +85,6 @@ def GetClassTypeMeans(dTrainingData, dClassTypes):
     for i in range(1, len(dClassTypes) + 1):
         dClassTypes[i]['mean_x'] = dClassTypes[i]['sum_x'] / dClassTypes[i]['count']
         dClassTypes[i]['mean_y'] = dClassTypes[i]['sum_y'] / dClassTypes[i]['count']
-
-# Return the "type" value (1 or 2)
-def GetNearestNeighborMajorityType(dNeighbors):
-    type_1_count = 0
-    type_2_count = 0
-    for i in range(1, len(dNeighbors) + 1):
-        if dNeighbors[i]['type'] == 1:
-            type_1_count += 1
-        elif dNeighbors[i]['type'] == 2:
-            type_2_count += 1
-    if type_1_count > type_2_count:
-        return 1
-    else:
-        return 2
 
 # Load the training data
 training_dict = {}
@@ -162,6 +146,3 @@ for i in range(0, len(testing_dict)):
             print(f"Test {i}: predicted class 2 incorrectly \t| distance from class 2 mean ({round(prediction_dict['two_dist'], 2)}) < ({round(prediction_dict['one_dist'], 2)}) distance from class 1 mean")
         else:
             print(f"Warning 3: class {testing_dict[i][2]} not recognized")
-
-
-
