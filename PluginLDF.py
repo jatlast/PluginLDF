@@ -1,6 +1,7 @@
 ########################################################################
 # Jason Baumbach
-#   CSC 546 - Homework 8 (due: April 02, 2019 @ 5:59 PM)
+#   CSC 546 - Homework 8    (due: April 02, 2019 @ 5:59 PM)
+#       Due date extension  (due: April 09, 2019 @ 5:59 PM)
 #   1.  Plug-in Rule – write the code to perform the simple Plug-in Rule classifier. 
 #       Use the same training and test files provided for the k-NN homework.
 #
@@ -81,7 +82,7 @@ class_types_dict = {}
 for i in range(1, args.classes + 1):
     class_types_dict[i] = {'count' : 0, 'sum_x' : 0, 'sum_y' : 0, 'mean' : -1}
 
-if args.verbosity > 0:
+if args.verbosity > 1:
     print(f"classes={args.classes} : len(class_types_dict)={len(class_types_dict)}")
 
 # Load the training data
